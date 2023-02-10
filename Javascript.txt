@@ -1,0 +1,173 @@
+Q-1  Welcome to this Javascript Guide! 
+
+let str =prompt("Enter a string:");
+let reverse = str.split("").reverse().join('').split(" ").reverse().join(' ');
+        console.log(reverse);
+
+Q-2  How to empty an array in JavaScript?
+
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f'];
+console.log(arrayList);
+while(arrayList.length){
+    arrayList.pop();
+}
+console.log(arrayList);
+console.log(arrayList.length);
+
+Q-3 Implement enqueue and dequeue using only two stacks
+
+var s1 = [];
+var s2 = [];
+function enqueue(ele) {
+        s1.push(ele);
+        console.log(s1);
+    }
+function dequeue() {
+    if (s2.length === 0 && s1.length === 0) {
+                console.log("Stacks are empty");
+            }
+          if(s1.length > 0) {
+                let x = s1.pop();
+                s2.push(x);
+        }
+    }
+    enqueue(1);
+    enqueue(2);
+    enqueue(3);
+    dequeue();
+    dequeue();
+    console.log("Elements in stack1:"+s1);
+    console.log("Elements in stack2:"+s2);
+
+
+Q-4   Create a for loop that iterates up to 100 while outputting "fizz" at 
+multiples of 3, "buzz" at multiples of 5 and "fizzbuzz" at multiples 
+of 3 and 5.
+
+for(var i=1;i<=100;i++){
+    if(i%3==0 && i%5==0){
+        console.log("fizzbuzz");
+    }
+    else if(i%5==0){
+        console.log("buzz");
+    }
+    else if(i%3==0){
+        console.log("fizz");
+    }
+    else{
+        console.log(i);
+    }
+}
+
+
+Q-5  Given two strings, return true if they are anagrams of one another
+
+var str1=prompt("Enter first string:");
+var str2=prompt("Enter second string:");
+str1=str1.toLowerCase();
+str2=str2.toLowerCase();
+if(str1.length===str2.length){
+    str1=str1.split('').sort().join('');
+    str2=str2.split('').sort().join('');
+    if(str1===str2){
+        console.log("Anagram");
+      
+
+  }
+    else{
+            console.log("Not an Anagram");
+        }
+}
+else{
+    console.log("Not an Anagram");
+}
+
+
+
+
+
+  
+Q-6 Valid name
+
+  let validName = (string) => {
+  let firstName = "";
+  let middleName = "";
+  let lastName = "";
+  let spacecount = 0;
+  let dotcount = 0;
+  let e = "";
+  
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === ".") {
+      dotcount += 1;
+    }
+    if (string[i] === " ") {
+      spacecount += 1;
+    }
+    if (spacecount === 0) {
+      firstName += string[i];
+    } else
+    if (spacecount === 1) {
+      if (string[i] !== " ") {
+        middleName += string[i];
+      }
+    } else 
+    if (spacecount === 2) {
+      if (string[i] !== " ") {
+        lastName += string[i];
+      }
+    }
+  }
+  if (string[string.length - 1] === ".") {
+      dotcount -= 1;
+    }
+  
+  let firstNameRegex = /^[A-Z][a-zA-Z]+$|^[A-Z]\W$/g;
+  let a = firstNameRegex.test(firstName);
+  let a1 = firstName.match(firstNameRegex);
+  
+  let middleNameRegex = /^[A-Z][a-zA-Z]+$|^[A-Z]\W$/g;
+  let b = middleNameRegex.test(middleName);
+  let b1 = middleName.match(middleNameRegex);
+  
+  let lastNameRegex = /^[A-Z][a-zA-Z]+$/g;
+  let c = lastNameRegex.test(lastName);
+  let c1 = lastName.match(lastNameRegex);
+  
+    if (a === true && b === true && c === true && spacecount === 2
+        && (dotcount === 0 || dotcount === 2)) {
+      e = true;
+    } else
+    if (a === true && b === true && c === true && spacecount === 2 
+        && (middleName[middleName.length - 1] === ".")) {
+      e = true;
+    } else
+    if (a === true && b === true && spacecount === 1) {
+      e = true; 
+    } else
+    e = false;
+      
+      let fullName = firstName + " " + middleName + " " + lastName
+      
+    return e;
+};
+
+console.log(validName("Herbert George Wells"));
+console.log(validName("Herbert G. Wells"));
+console.log(validName("H. Wells"));
+console.log(validName("H. G. Wells"));
+console.log(validName("Herbert"));
+console.log(validName("h. Wells"));
+console.log(validName("H Wells"));
+console.log(validName("H. George Wells"));
+console.log(validName("H. George W."));
+console.log(validName("Herb. George Wells"));
+console.log(validName("H. G Wells"));
+console.log(validName("h. g. Wells"));
+console.log(validName("H. G. W."));
+console.log(validName("Herb. G. Wells"));
+      
+
+Q-6 Valid name
+
+ 
